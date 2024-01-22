@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: teampass:custom
+    image: ghcr.io/cumal/rpi-teampass:arm
     restart: always
     environment:
       VIRTUAL_HOST: localhost
