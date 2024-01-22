@@ -1,5 +1,7 @@
 FROM debian:bullseye
 
+LABEL org.opencontainers.image.source=https://github.com/cumal/rpi-teampass
+
 ENV DEBIAN_FRONTEND noninteractive
 ARG VOL=/var/www/html
 ARG REPO_URL=https://github.com/nilsteampassnet/TeamPass.git
