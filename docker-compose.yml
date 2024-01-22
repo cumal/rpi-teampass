@@ -1,0 +1,30 @@
+version: "3"
+services:
+  web:
+    image: teampass:custom
+    restart: always
+    environment:
+      VIRTUAL_HOST: localhost
+      VIRTUAL_PORT: 80
+      GIT_TAG: 2.1.27.36
+    volumes:
+      - ./teampass-html:/var/www/html
+    # Replace with your prefered port
+    ports:
+      - 8899:80
+    depends_on:
+      - db
+  db:
+    restart: always
+    image: webhippie/mariadb:latest-arm
+    # Replace env vars with your config
+    environment:
+      MARIADB_ROOT_USERNAME: root
+      MARIADB_ROOT_PASSWORD: ROOT_PASSW
+      MARIADB_DATABASE: DB_NAME
+      MARIADB_PASSWORD: PASSW
+      MARIADB_USERNAME: USER
+      PUID: 1000
+      GUID: 1000
+    volumes:
+      - ./teampass-db/mysql:/var/lib/mysql
